@@ -1,0 +1,335 @@
+* , 
+*::before, 
+*::after, 
+a {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: inherit;
+}
+
+:root{
+    --rubik: "Rubik Wet Paint", system-ui;
+    --caveat: "Caveat", cursive;
+}
+
+.wrapper{
+    position: relative;
+    min-height: 100vh;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    overflow: hidden;
+    background-image: url(../img/wall.jpg);
+    background-size: cover;
+}
+
+.blackout{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    visibility: hidden;
+    z-index: 90;
+}
+
+.popUp{
+    max-width: 500px;
+    width: 50%;
+    min-height: 200px;
+    height: 50%;
+    display: flex;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 9px;
+    z-index: 10;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url(../img/smoke.png);
+    background-size: 97%;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 100;
+}
+
+.popUp__message{
+    font-family: var(--rubik);
+    color: crimson;
+    font-size: 1.7rem;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.popUp__button{
+    color: crimson;
+    font-size: 1.3rem;
+    opacity: 1;
+    animation: blink;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+
+@keyframes blink {
+    5%{
+        opacity: 0.5;
+    }
+    7%{
+        opacity: 1;
+    }
+    12%{
+        opacity: 0;
+    }
+    15%{
+        opacity: 1;
+    }
+    25%{
+        opacity: 0.5;
+    }
+    55%{
+        opacity: 1;
+    }
+    70%{
+        opacity: 0;
+    }
+    75%{
+        opacity: 0.5;
+    }
+    79%{
+        opacity: 0;
+    }
+    83%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.popUp__button-playAgain{
+    font-size: 2rem;
+    color: rgb(22, 236, 208);
+    z-index: 200;
+}
+
+.ghost{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    animation: blink;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    visibility: hidden;
+}
+
+.container{
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 50px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+main{
+    flex-grow: 1;
+}
+
+.textPart{
+    height: 100%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+    z-index: 50;
+}
+
+h1{
+    font-family: var(--rubik);
+    color: rgb(207, 42, 42);
+    font-size: 3rem;
+}
+
+.answer{
+    display: flex;
+    justify-content: space-between;
+    height: 4rem;
+}
+
+.attempt{
+    background-image: url(../img/Vector.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    color: bisque;
+    width: 20%;
+    background-position: center;
+    height: 100%;
+    min-height: 60px;
+}
+
+.letter{
+    font-family: var(--caveat);
+    font-size: 3rem;
+}
+
+.drawPart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 500px;
+}
+
+.clue{
+    color: brown;
+    font-size: 1.5rem;
+    font-family: var(--rubik);
+    text-align: center;
+}
+
+label{
+    display: flex;
+    justify-content: center;
+}
+
+#guess{
+    box-shadow: 0px 0px 30px brown;
+    min-height: 2rem;
+    width: 30%;
+    animation: smoke;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    align-self: center;
+    border-radius: 10%;
+}
+
+input{
+    background-color: transparent;
+    border-width: 0px;
+    text-align: center;
+    color: bisque;
+    font-size: 2rem;
+    font-family: var(--caveat);
+    width: 100%;
+}
+
+@keyframes smoke {
+    from{
+        box-shadow: 0px 0px 30px brown;
+    }
+    to{
+        box-shadow: 0px 0px 30px brown;
+    }
+    50%{
+        box-shadow: 0px 0px 30px rgb(231, 8, 8);
+    }
+}
+
+.attempts{
+    font-family: var(--caveat);
+    font-size: 2rem;
+    color: darkcyan;
+    display: flex;
+    min-height: 3rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+button{
+    background-color: transparent;
+    font-family: var(--rubik);
+    font-size: 2rem;
+    color: brown;
+    cursor: pointer;
+    border-width: 0px;
+}
+
+.prevGames{
+    color: darkcyan;
+    font-size: 1.5rem;
+    font-family: var(--caveat);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    min-width: 20%;
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    position: sticky;
+    left: 83vw;
+    width: 100%;
+    align-items: center;
+    padding: 10px;
+    gap: 1rem;
+}
+
+
+
+
+
+@media  all and  (max-width: 870px){
+    html{
+        font-size: 14px;
+    }
+
+    .drawPart{
+        min-width: 300px;
+    }
+
+    .answer{
+        min-height: 80px;
+    }
+
+    .ghost{
+        width: 30vw;
+    }
+}
+
+
+@media  all and  (max-width: 650px){
+    html{
+        font-size: 12px;
+    }
+
+    .drawPart{
+        min-width: 200px;
+    }
+
+    .answer{
+        min-height: 47px;
+    }
+
+    .footer{
+        width: 45.31vw;
+        position: absolute;
+        left: 26%;
+        top: calc(100% - 10px);
+    }
+
+    .ghost{
+        top: 70%;
+    }
+}
+
+
+@media  all and  (max-width: 455px){
+    html{
+        font-size: 9px;
+    }
+}
+
+
